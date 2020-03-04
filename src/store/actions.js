@@ -1,1 +1,1 @@
-export const SET_COUNTRY = "SET_COUNTRY"; 
+export const SELECT_COUNTRY = "SELECT_COUNTRY"; 

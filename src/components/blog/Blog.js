@@ -111,10 +111,10 @@ const Blog = (props) => {
 
     return (
         <>
-            <AppBar style={{ background: LightBlue[900] }}>
+            <AppBar  position="sticky" style={{ background: LightBlue[900]}}>
                 <Toolbar>
                     {menuBarForMobile}
-                    <Button style={{ color: Green[300], fontSize: '20px' }} component={Link} to="/Test">Around the World</Button>
+                    <Button style={{ color: Green[300], fontSize: '20px' }} component={Link} to="/">Around the World</Button>
                     {desktopMenu}
                 </Toolbar>
             </AppBar>

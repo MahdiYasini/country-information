@@ -1,16 +1,13 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
-import { Container } from '@material-ui/core';
 import Blog from './components/blog/Blog';
+import ChooseCountry from './components/chooseCountry/chooseCountry'
 function App() {
   return (
     <BrowserRouter>
-      <Container>
-        <div className="App">
-          <Blog />
-        </div>
-      </Container>
+          <Blog/>
+          <ChooseCountry/>
     </BrowserRouter>
   );
 }

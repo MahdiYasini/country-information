@@ -252,11 +252,20 @@ const initialState = {
         "Zimbabwe",
         "Åland Islands"
     ],
-    countrySelectedInfo: {}
+    countrySelected: '',
+    countrySelectedInfo: {},
 };
 
 const countryReducer = (state = initialState, action) => {
-    return state;
+    switch (action.type) {
+        case actionTypes.SELECT_COUNTRY:
+            return {
+                ...state,
+                countrySelected: state.countryList[action.country]
+            }
+        default:
+            return state;
+    }
 }
 
 export default countryReducer;

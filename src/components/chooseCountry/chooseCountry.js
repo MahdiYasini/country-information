@@ -38,17 +38,12 @@ const useStyles = makeStyles(theme => ({
   
 const ChooseCountry = (props) => {
     const classes = useStyles()
-
-    const  [countryNumber, setCountry] = useState('Country')
-
     const inputLabel = React.useRef(null);
     const [labelWidth, setLabelWidth] = React.useState(0);
 
     React.useEffect(() => {
         setLabelWidth(inputLabel.current.offsetWidth);
     }, []);
-
-    const countrySelectHandle = (country) => country === props.selectedCountry;
     
     return (
         < >
@@ -63,12 +58,12 @@ const ChooseCountry = (props) => {
                     <Select
                         labelId="demo-simple-select-outlined-label"
                         id="demo-simple-select-outlined"
-                        value = {props.countryList.findIndex(countrySelectHandle) !== -1 ? props.countryList.findIndex(countrySelectHandle)  : ''}
+                        value = {props.selectedCountry !== -1 ? props.selectedCountry  : ''}
                         onChange={(event) => props.onSelectCountry(event.target.value) }
                         labelWidth={labelWidth}
                     >
-                        {props.countryList.map((country, index) => (
-                            <MenuItem key = {index} value={index}>{country}</MenuItem>
+                        {props.countryListAllIsoData.map((country, index) => (
+                            <MenuItem key = {index} value={index}>{country.name}</MenuItem>
                         ))}
                     </Select>
                 </FormControl>
@@ -85,8 +80,8 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
     return {
-        countryList: state.country.countryList,
         selectedCountry: state.country.countrySelected,
+        countryListAllIsoData: state.country.countryListAllIsoData
     }
 }
 

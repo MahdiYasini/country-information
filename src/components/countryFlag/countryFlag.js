@@ -1,11 +1,6 @@
-import React, { useState } from 'react';
-import * as actionTypes from '../../store/actions';
+import React from 'react';
 import { connect } from 'react-redux';
-import { Box, makeStyles, Select, Typography, Avatar } from '@material-ui/core';
-import amber from '@material-ui/core/colors/amber';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
+import { Box, makeStyles } from '@material-ui/core';
 import blueGrey from '@material-ui/core/colors/blueGrey';
 
 const useStyles = makeStyles(theme => ({

@@ -9,6 +9,23 @@ import { Provider } from 'react-redux';
 import countryReducer from './store/reducer/countrySetReducer';
 import authenticateReducer from './store/reducer/authentication';
 
+import axios from 'axios';
+axios.interceptors.request.use(request => {
+    console.log(request);
+    return request;
+}, error => {
+    console.log(error);
+    return Promise.reject(error);
+});
+
+axios.interceptors.response.use(response => {
+    console.log(response);
+    return response;
+}, error => {
+    console.log(error);
+    return Promise.reject(error);
+});
+
 const rootReducer  = combineReducers ({
     country: countryReducer,
     auth: authenticateReducer

@@ -253,7 +253,7 @@ const initialState = {
         {"code": "AX", "code3": "ALA", "name": "Åland Islands", "number": "248"}
     ],
     countrySelected: -1,
-    countrySelectedInfo: {},
+    countrySelectedInformation: null,
 };
 
 const countryReducer = (state = initialState, action) => {
@@ -262,6 +262,12 @@ const countryReducer = (state = initialState, action) => {
             return {
                 ...state,
                 countrySelected: action.country
+            }
+        
+        case actionTypes.COUNTRY_INFO:
+            return {
+                ...state,
+                countrySelectedInformation: action.information
             }
         default:
             return state;

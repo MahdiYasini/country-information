@@ -31,12 +31,12 @@ const useStyles = makeStyles(theme => ({
         width: "180px",
         height: "90px",
         [theme.breakpoints.up('md')]: {
-            width: "270px",
+            width: "370px",
             height: "160px",
         },
         [theme.breakpoints.up('lg')]: {
             width: "450px",
-            height: "200px",
+            height: "229px",
         },
     },
 }));

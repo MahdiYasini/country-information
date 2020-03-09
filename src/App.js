@@ -7,6 +7,7 @@ import ChooseCountry from './components/chooseCountry/chooseCountry';
 import CountryFlag from './components/countryFlag/countryFlag';
 import CountryInfo from './components/countryInfo/countryInfo';
 import WeatherOfCapitalCity from './components/weatherOfCapitalCity/weatherOfCapitalCity'
+import TelephoneCodeNumber from './components/telephoneCodeNumber/telephoneCodeNumber'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           </Box>
           <Box display="flex" flexWrap="wrap">
             <WeatherOfCapitalCity />
+            <TelephoneCodeNumber />
           </Box>
     </BrowserRouter>
   );

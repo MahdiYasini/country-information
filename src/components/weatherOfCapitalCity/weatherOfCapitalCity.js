@@ -54,10 +54,7 @@ const ChooseCountry = (props) => {
         }
 
     });
-    console.log('icon', icon)
-    console.log('weatherData', weatherData)
-    console.log('error', error)
-    console.log('tst', tst)
+
 
     const weatherInformation = (
         <>

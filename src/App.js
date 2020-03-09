@@ -8,6 +8,7 @@ import CountryFlag from './components/countryFlag/countryFlag';
 import CountryInfo from './components/countryInfo/countryInfo';
 import WeatherOfCapitalCity from './components/weatherOfCapitalCity/weatherOfCapitalCity'
 import TelephoneCodeNumber from './components/telephoneCodeNumber/telephoneCodeNumber'
+import CountryMap from './components/countryMap/countryMap';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Box display="flex" flexWrap="wrap">
             <WeatherOfCapitalCity />
             <TelephoneCodeNumber />
+            <CountryMap />
           </Box>
     </BrowserRouter>
   );

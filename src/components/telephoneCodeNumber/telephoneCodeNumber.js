@@ -26,73 +26,18 @@ const useStyles = makeStyles(theme => ({
 
 const ChooseCountry = (props) => {
     const [telCode, setCode] = useState('+0');
-    const [capital, setNewCapital] = useState('')
-    const [loader, setLoader] = useState(false);
-    const [weatherData, setData] = useState({});
-    const [icon, setIcon] = useState('')
-    const [error, setError] = useState(false);
     const classes = useStyles()
 
-    const [tst, setTst] = useState({});
-
-
     useEffect(() => {
-        if (props.countrySelectedInformation && capital !== props.countrySelectedInformation.capital) {
-            setCode(`+${props.countrySelectedInformation.callingCodes}`)
-            setNewCapital(props.countrySelectedInformation.capital)
-            setLoader(true);
-            axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${props.countrySelectedInformation.capital}&appid=ca0ec975436df06b64b836e9a6637e9a`)
-                .then(response => {
-                    setError(false);
-                    setIcon(response.data.weather[0].icon);
-                    setData({ main: response.data.weather[0].main, description: response.data.weather[0].description })
-                    setLoader(false);
-                    setTst({ main: response.data.weather[0].main, description: response.data.weather[0].description })
-                })
-                .catch(() => {
-                    setError(true);
-                    setLoader(false);
-                })
+        if (props.countrySelectedInformation) {
+            setCode(`+${props.countrySelectedInformation.callingCodes}`);
         }
-
     });
-    console.log('icon', icon)
-    console.log('weatherData', weatherData)
-    console.log('error', error)
-    console.log('tst', tst)
-
-    const weatherInformation = (
-        <>
-            <Box style={{ fontSize: "18px", color: "#263238", width: "100%" }} p={1} m={1} component={Paper} bgcolor={"#c4cad4"} align="center">
-                Country Code: {telCode}
-            </Box>
-        </>
-    )
-
-    const weatherMainData = (
-        <>
-            <div style={{ width: '100%', padding: "2%" }}>
-                <Box
-                    display="flex"
-                    flexWrap="wrap"
-                    p={1}
-                    m={1}
-                    bgcolor={"#416d8f"}
-                    borderRadius={5}
-                    style={{ maxWidth: 600, margin: "0 auto" }}
-                >
-                    {error ? <Box flexGrow={1} m={1} component={Paper} bgcolor={"#0C0E10"} align="center"> <ErrorPage /> </Box> : weatherInformation
-                    }
-                </Box>
-            </div>
-        </>
-    );
-
 
 
     return (
         <div className={classes.box} >
-                        <div style={{ width: '100%', padding: "2%" }}>
+            <div style={{ width: '100%', padding: "2%" }}>
                 <Box
                     display="flex"
                     flexWrap="wrap"
@@ -102,7 +47,9 @@ const ChooseCountry = (props) => {
                     borderRadius={5}
                     style={{ marginTop: "10%" }}
                 >
-                    {weatherMainData}
+                    <Box style={{ fontSize: "18px", color: "#263238", width: "100%" }} p={1} m={1} component={Paper} bgcolor={"#c4cad4"} align="center">
+                        Country Code: {telCode}
+                    </Box>
                 </Box>
             </div>
         </div>

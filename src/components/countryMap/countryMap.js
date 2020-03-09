@@ -39,8 +39,8 @@ const ChooseCountry = (props) => {
                     bgcolor={"#416d8f"}
                     borderRadius={5}
                 >
-                    <Box style={{ fontSize: "18px", color: "#263238", width: "100%" }}  m={1} p = {1} component={Paper} bgcolor={"#c4cad4"} align="center">
-                                <iframe className = {classes.map} src={`https://maps.google.com/maps?q=${latLng[0]}, ${latLng[1]}&z=4&output=embed`} />
+                    <Box style={{ fontSize: "18px", color: "#263238", width: "100%" }} m={1} p={1} component={Paper} bgcolor={"#c4cad4"} align="center">
+                        <iframe className={classes.map} src={`https://maps.google.com/maps?q=${latLng[0]}, ${latLng[1]}&z=4&output=embed`} />
                     </Box>
                 </Box>
             </div>

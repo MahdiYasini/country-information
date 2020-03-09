@@ -93,18 +93,10 @@ const ChooseCountry = (props) => {
     );
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onSelectCountryInfo: (information) => dispatch({ type: actionTypes.COUNTRY_INFO, information: information })
-    }
-}
-
 const mapStateToProps = state => {
     return {
-        selectedCountry: state.country.countrySelected,
-        countryListAllIsoData: state.country.countryListAllIsoData,
         countrySelectedInformation: state.country.countrySelectedInformation
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChooseCountry);
+export default connect(mapStateToProps)(ChooseCountry);

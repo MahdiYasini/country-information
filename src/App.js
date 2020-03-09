@@ -6,14 +6,19 @@ import Blog from './components/blog/Blog';
 import ChooseCountry from './components/chooseCountry/chooseCountry';
 import CountryFlag from './components/countryFlag/countryFlag';
 import CountryInfo from './components/countryInfo/countryInfo';
+import WeatherOfCapitalCity from './components/weatherOfCapitalCity/weatherOfCapitalCity'
+
 function App() {
   return (
     <BrowserRouter>
           <Blog/>
           <ChooseCountry/>
-          <Box display="flex" flexDirection="row" flexWrap="wrap">
+          <Box display="flex" flexWrap="wrap">
             <CountryFlag />
             <CountryInfo/>
+          </Box>
+          <Box display="flex" flexWrap="wrap">
+            <WeatherOfCapitalCity />
           </Box>
     </BrowserRouter>
   );

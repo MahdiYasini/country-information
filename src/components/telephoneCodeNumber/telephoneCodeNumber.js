@@ -4,7 +4,7 @@ import { Avatar, Paper, Box, makeStyles } from '@material-ui/core';
 import grey from '@material-ui/core/colors/grey';
 import axios from 'axios';
 import LoaderIcon from '../../UI/loader';
-import ErrorPage from '../../UI/404Page/404Page';
+import ErrorPage from '../../UI/404CapitalCity/404CapitalCity';
 import * as actionTypes from '../../store/actions'
 
 const useStyles = makeStyles(theme => ({

@@ -1,5 +1,5 @@
 import React from 'react';
-import './404Page.css';
+import './404CapitalCity.css';
 const errorPage = () => (
         <div className="container">
             <p className = "heading">404</p>

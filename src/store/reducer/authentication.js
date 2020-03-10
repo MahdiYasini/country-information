@@ -6,7 +6,16 @@ const initialState = {
 }
 
 const authenticateReducer = (state = initialState, action) => {
-    return state;
+    switch (action.type) {
+        case actionTypes.AUTHENTICATION:
+            return {
+                ...state,
+                username: action.username,
+                authenticated: true
+            }
+        default:
+            return state;
+    }
 }
 
 export default authenticateReducer;

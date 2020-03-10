@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
-import { Box, makeStyles, Select, Tabs, Tab, AppBar, Toolbar, Drawer, Button, List, ListItem, ListItemIcon, ListItemText  } from '@material-ui/core';
+import { connect } from 'react-redux';
+import { Box, makeStyles, Select, Tabs, Tab, AppBar, Toolbar, Drawer, Button, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
 import MenuIcon from '@material-ui/icons/Menu';
 import Hidden from '@material-ui/core/Hidden';
@@ -11,7 +11,10 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import PublicIcon from '@material-ui/icons/Public';
 import Green from '@material-ui/core/colors/green';
 import LightBlue from '@material-ui/core/colors/lightBlue';
-
+import Register from '../register/register'
+import RegisterWithPhone from '../register/registerWithPhone';
+import MainBlog from '../mainBlog.js/mainBlog'
+import PageNotFound from '../../UI/404PageNotFound/404PageNotFound'
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
@@ -69,8 +72,8 @@ const Blog = (props) => {
                 </ListItem>
             </List>
             {
-                SignedUp ? null :
-                    <List style={{ textDecoration: 'none', color: "inherit" }} component={Link} to="/signUp">
+                props.auth ? null :
+                    <List style={{ textDecoration: 'none', color: "inherit" }} component={Link} to="/phoneRegister">
                         <ListItem button>
                             <ListItemIcon>
                                 <PersonAddIcon />
@@ -104,20 +107,26 @@ const Blog = (props) => {
     const desktopMenu = (
         <Hidden xsDown>
             <Button style={{ color: Green[300] }} component={Link} to="/Test">All Countries</Button>
-            {SignedUp ? null : <Button style={{ color: Green[300] }} component={Link} to="/Test">SignUp</Button>}
+            {props.auth ? null : <Button style={{ color: Green[300] }} component={Register} to="/Test">SignUp</Button>}
             <Button style={{ color: Green[300] }} component={Link} to="/Test">About Us</Button>
         </Hidden>
     );
 
     return (
         <>
-            <AppBar  position="sticky" style={{ background: LightBlue[900]}}>
+            <AppBar position="sticky" style={{ background: LightBlue[900] }}>
                 <Toolbar>
                     {menuBarForMobile}
                     <Button style={{ color: Green[300], fontSize: '20px' }} component={Link} to="/">Around the World</Button>
                     {desktopMenu}
                 </Toolbar>
             </AppBar>
+            <Switch>
+                <Route path="/phoneRegister" exact component={RegisterWithPhone} />
+                <Route path="/" exact component={MainBlog} />
+                <Route component = {PageNotFound}/>
+            </Switch>
+
         </>
     );
 }
@@ -125,4 +134,16 @@ const Blog = (props) => {
 Blog.propTypes = {
     width: PropTypes.oneOf(['lg', 'md', 'sm', 'xl', 'xs']).isRequired,
 };
-export default withWidth()(Blog);
+
+
+
+const mapStateToProps = state => {
+    console.log('state', state)
+    return {
+        auth: state.auth.authenticated,
+        username: state.auth.username
+    }
+}
+
+export default withWidth()(connect(mapStateToProps)(Blog));
+

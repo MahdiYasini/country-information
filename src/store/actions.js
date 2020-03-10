@@ -1,2 +1,3 @@
 export const SELECT_COUNTRY = "SELECT_COUNTRY"; 
 export const COUNTRY_INFO = "COUNTRY_INFO"
+export const AUTHENTICATION =  "AUTHENTICATION";

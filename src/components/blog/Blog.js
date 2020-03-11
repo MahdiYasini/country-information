@@ -15,6 +15,7 @@ import Register from '../register/register'
 import RegisterWithPhone from '../register/registerWithPhone';
 import MainBlog from '../mainBlog.js/mainBlog'
 import PageNotFound from '../../UI/404PageNotFound/404PageNotFound'
+import AllCountries from '../allCountries/allCountries'
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
@@ -44,7 +45,6 @@ const useStyles = makeStyles(theme => ({
 const Blog = (props) => {
     const classes = useStyles();
 
-    const [SignedUp, setSignUp] = useState(false);
     const [state, setState] = useState({
         left: false,
     });
@@ -63,7 +63,7 @@ const Blog = (props) => {
             onClick={toggleDrawer(side, false)}
             onKeyDown={toggleDrawer(side, false)}
         >
-            <List style={{ textDecoration: 'none', color: "inherit" }} component={Link} to="/allCountries">
+            <List style={{ textDecoration: 'none', color: "inherit" }} component={Link} to="/AllCountries">
                 <ListItem button>
                     <ListItemIcon>
                         <PublicIcon />
@@ -82,14 +82,6 @@ const Blog = (props) => {
                         </ListItem>
                     </List>
             }
-            <List style={{ textDecoration: 'none', color: "inherit" }} component={Link} to="/aboutUs">
-                <ListItem button>
-                    <ListItemIcon>
-                        <InfoIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="About Us" />
-                </ListItem>
-            </List>
         </div>
     );
 
@@ -106,9 +98,8 @@ const Blog = (props) => {
 
     const desktopMenu = (
         <Hidden xsDown>
-            <Button style={{ color: Green[300] }} component={Link} to="/Test">All Countries</Button>
-            {props.auth ? null : <Button style={{ color: Green[300] }} component={Register} to="/Test">SignUp</Button>}
-            <Button style={{ color: Green[300] }} component={Link} to="/Test">About Us</Button>
+            <Button style={{ color: Green[300] }} component={Link} to="/AllCountries">All Countries</Button>
+            {props.auth ? null : <Button style={{ color: Green[300] }} component={Register}>SignUp</Button>}
         </Hidden>
     );
 
@@ -124,6 +115,7 @@ const Blog = (props) => {
             <Switch>
                 <Route path="/phoneRegister" exact component={RegisterWithPhone} />
                 <Route path="/" exact component={MainBlog} />
+                <Route path="/AllCountries" exact component={AllCountries} />
                 <Route component = {PageNotFound}/>
             </Switch>
 

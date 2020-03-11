@@ -5,16 +5,15 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
   background-image: linear-gradient(45deg, #f6d200 25%, lightBlue);;
 }
 
-h1 {
+.text {
   text-transform: uppercase;
   background: repeating-linear-gradient(45deg, #f6d200, #f6d200 10px, #181617 10px, #181617 20px);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /*animation: move 5s ease infinite;*/
   font-size: 384px;
   margin: 0;
   line-height: .7;
@@ -24,9 +23,8 @@ h1 {
   padding-bottom: 12.6%;
 }
 
-
 @media only screen and (max-width: 600px) {
-  h1 {
+  .text {
     font-size: 100px;
     padding-top: 71.5%;
     padding-bottom: 71.5%;

@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Box, makeStyles, Select, Tabs, Tab, AppBar, Toolbar, Drawer, Button, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import InfoIcon from '@material-ui/icons/Info';
+import { Hidden, withWidth, makeStyles, AppBar, Toolbar, Drawer, Button, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import Hidden from '@material-ui/core/Hidden';
-import withWidth from '@material-ui/core/withWidth';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import PublicIcon from '@material-ui/icons/Public';
 import Green from '@material-ui/core/colors/green';
@@ -16,31 +13,12 @@ import RegisterWithPhone from '../register/registerWithPhone';
 import MainBlog from '../mainBlog.js/mainBlog'
 import PageNotFound from '../../UI/404PageNotFound/404PageNotFound'
 import AllCountries from '../allCountries/allCountries'
-const useStyles = makeStyles(theme => ({
-    root: {
-        flexGrow: 1,
-    },
-    menuButton: {
-        marginRight: theme.spacing(20),
-    },
-    title: {
-        flexGrow: 1,
-    },
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-        flex: '1 0 auto',
-        margin: theme.spacing(1),
-    },
+
+const useStyles = makeStyles({
     list: {
         width: 250,
     },
-}));
+});
 
 const Blog = (props) => {
     const classes = useStyles();
@@ -116,9 +94,8 @@ const Blog = (props) => {
                 <Route path="/phoneRegister" exact component={RegisterWithPhone} />
                 <Route path="/" exact component={MainBlog} />
                 <Route path="/AllCountries" exact component={AllCountries} />
-                <Route component = {PageNotFound}/>
+                <Route component={PageNotFound} />
             </Switch>
-
         </>
     );
 }
@@ -128,9 +105,7 @@ Blog.propTypes = {
 };
 
 
-
 const mapStateToProps = state => {
-    console.log('state', state)
     return {
         auth: state.auth.authenticated,
         username: state.auth.username

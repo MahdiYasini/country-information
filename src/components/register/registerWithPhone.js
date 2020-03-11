@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import {  InputLabel, Button, FormHelperText, Input, FormControl, TextField, Paper, Box, makeStyles } from '@material-ui/core';
+import { Button, FormHelperText, FormControl, TextField, makeStyles } from '@material-ui/core';
 import grey from '@material-ui/core/colors/grey';
-import axios from '../../axios';
-import LoaderIcon from '../../UI/loader/loader';
 import * as actionTypes from '../../store/actions'
 import { Alert } from '@material-ui/lab';
 
@@ -42,12 +40,12 @@ const RegisterWithPhone = (props) => {
     return (
         <div className={classes.box} >
             <FormControl className={classes.input}>
-                <TextField onChange = {(event) => setName(event.target.value)} id="outlined-basic" label="Name" variant="outlined" />
+                <TextField onChange={(event) => setName(event.target.value)} id="outlined-basic" label="Name" variant="outlined" />
                 <FormHelperText id="my-helper-text">We'll never share your name.</FormHelperText>
-                <Button variant="contained" color="primary" onClick = {HandleRegister} >
+                <Button variant="contained" color="primary" onClick={HandleRegister} >
                     Join Us
                 </Button>
-                {!correctInput ? <Alert m ={1} severity="error">Please enter your name</Alert> : ''}
+                {!correctInput ? <Alert m={1} severity="error">Please enter your name</Alert> : ''}
             </FormControl>
         </div>
     );

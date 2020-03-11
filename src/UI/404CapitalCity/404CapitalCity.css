@@ -1,12 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
-/*Variables */
-* {
-  box-sizing: border-box;
-}
+
 .mainBody {
     width: 50%;
     height: 30%;
-    /* background: linear-gradient(#0C0E10, #446182); */
+    font-family: "Fira Sans", sans-serif;
 }
 
 .header {
@@ -24,33 +21,7 @@
 .heading {
   display: flex;
   flex-wrap: wrap;
-  /* font-size:  1rem;
-  margin: 2rem 0 0.5rem 0;
-  text-shadow: 0 0 1rem #fefefe; */
 }
-
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Fira Sans", sans-serif;
-  color: #f5f6fa;
-}
-
-
-
-/* @media (max-width: 770px) {
-  .container {
-    flex-direction: column;
-    padding-bottom: 0vh;
-  }
-} */
-
-
-
-
 
 @keyframes glow {
   0% {

@@ -17,7 +17,6 @@ axios.interceptors.request.use(request => {
 });
 
 axios.interceptors.response.use(response => {
-    response.setHeader("Set-Cookie", "HttpOnly;Secure;SameSite=Strict");
     return response;
 }, error => {
     return Promise.reject(error);

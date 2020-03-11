@@ -28,10 +28,7 @@ const ChooseCountry = (props) => {
     const [weatherData, setData] = useState({});
     const [icon, setIcon] = useState('')
     const [error, setError] = useState(false);
-    const classes = useStyles()
-
-    const [tst, setTst] = useState({});
-
+    const classes = useStyles();
 
     useEffect(() => {
         if (props.countrySelectedInformation && capital !== props.countrySelectedInformation.capital) {
@@ -43,14 +40,12 @@ const ChooseCountry = (props) => {
                     setIcon(response.data.weather[0].icon);
                     setData({ main: response.data.weather[0].main, description: response.data.weather[0].description })
                     setLoader(false);
-                    setTst({ main: response.data.weather[0].main, description: response.data.weather[0].description })
                 })
                 .catch(() => {
                     setError(true);
                     setLoader(false);
                 })
         }
-
     }, [props.countrySelectedInformation, capital]);
 
 

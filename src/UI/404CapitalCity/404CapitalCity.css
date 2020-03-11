@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 
 .mainBody {
-    width: 50%;
-    height: 30%;
-    font-family: "Fira Sans", sans-serif;
+  width: 50%;
+  height: 30%;
+  font-family: "Fira Sans", sans-serif;
 }
 
 .header {
-  text-shadow: 0 0 1rem #fefefe; 
+  text-shadow: 0 0 1rem #fefefe;
   font-size: 5rem;
   margin: 0;
   color: burlywood;

@@ -6,10 +6,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Green from '@material-ui/core/colors/green';
 import { connect } from 'react-redux';
-import { InputLabel, FormHelperText, Input, FormControl, TextField, Paper, Box } from '@material-ui/core';
-import grey from '@material-ui/core/colors/grey';
-import axios from '../../axios';
-import LoaderIcon from '../../UI/loader/loader';
+import { FormHelperText, FormControl, TextField } from '@material-ui/core';
 import * as actionTypes from '../../store/actions'
 import { Alert } from '@material-ui/lab';
 
@@ -27,7 +24,6 @@ const useStyles = makeStyles(theme => ({
   input: {
     width: "100%"
   }
-
 }));
 
 const Register = (props) => {
@@ -38,9 +34,7 @@ const Register = (props) => {
   const [open, setOpen] = useState(false);
 
   const HandleRegister = () => {
-
-    (name.length === 0) ?  setCorrectInput(false) : props.onSetAuthentication(name);
-
+    (name.length === 0) ? setCorrectInput(false) : props.onSetAuthentication(name);
   }
 
   const handleOpen = () => {
@@ -82,7 +76,6 @@ const Register = (props) => {
     </div>
   );
 }
-
 
 const mapDispatchToProps = dispatch => {
   return {

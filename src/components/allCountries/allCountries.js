@@ -1,66 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Paper, Box, makeStyles } from '@material-ui/core';
-import grey from '@material-ui/core/colors/grey';
 import axios from '../../axios';
-import LoaderIcon from '../../UI/loader/loader';
-import * as actionTypes from '../../store/actions'
-import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { Box, makeStyles, Card, CardHeader, CardMedia, CardContent, Typography } from '@material-ui/core';
 import AccessForbidden from '../../UI/403AccessForbidden/403AccessForbidden'
+import LoaderIcon from '../../UI/loader/loader';
 
-const useStyles = makeStyles(theme => ({
-
+const useStyles = makeStyles({
     root: {
         maxWidth: 300,
     },
     media: {
         height: 0,
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '56.25%'
     },
-    expand: {
-        transform: 'rotate(0deg)',
-        marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
-            duration: theme.transitions.duration.shortest,
-        }),
-    },
-    expandOpen: {
-        transform: 'rotate(180deg)',
-    },
-    avatar: {
-        backgroundColor: red[500],
-    },
-}));
+});
 
 const ChooseCountry = (props) => {
     const [loader, setLoader] = useState(false);
     const [countriesInfo, setCountriesInformation] = useState([]);
-    let ali = [];
+
     const classes = useStyles()
-
-    const [expanded, setExpanded] = React.useState(false);
-
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
-    };
-
-    const [tst, setTst] = useState(false);
-
-
 
     const HandleNumberWithCommas = (x) => {
         x = x.toString();
@@ -76,6 +35,7 @@ const ChooseCountry = (props) => {
             Promise.all(countryListPromises)
                 .then(countriesInformationResponse => {
                     let allInformation = [];
+                    // eslint-disable-next-line array-callback-return
                     countriesInformationResponse.map(countryInformation => {
                         let information = {};
                         for (const key in countryInformation.data) {
@@ -110,10 +70,10 @@ const ChooseCountry = (props) => {
                     })
                     setLoader(true);
                     setCountriesInformation(allInformation)
-
                 })
         }
     });
+
     const countriesInformation = (
         <>
             <div style={{ width: '100%', backgroundColor: "lightBlue" }}>
@@ -126,39 +86,37 @@ const ChooseCountry = (props) => {
                     bgcolor={"salmon"}
                     css={{ maxWidth: "100%" }}
                 >
-                    {countriesInfo.map(country =>
-                        (
-                            <Box key={country.alpha3Code} m={1} p={1} bgcolor="grey.300">
-                                <Card className={classes.root}>
-                                    <CardHeader
-                                        title={country.name}
-                                    />
-                                    <CardMedia
-                                        className={classes.media}
-                                        image={`https://restcountries.eu/data/${country.alpha3Code.toLowerCase()}.svg`}
-                                        title="Flag"
-                                    />
-                                    <CardContent>
-                                        <Typography p={1} color="primary" variant="subtitle1">
-                                            More information about this country
+                    {countriesInfo.map(country => (
+                        <Box key={country.alpha3Code} m={1} p={1} bgcolor="grey.300">
+                            <Card className={classes.root}>
+                                <CardHeader
+                                    title={country.name}
+                                />
+                                <CardMedia
+                                    className={classes.media}
+                                    image={`https://restcountries.eu/data/${country.alpha3Code.toLowerCase()}.svg`}
+                                    title="Flag"
+                                />
+                                <CardContent>
+                                    <Typography p={1} color="primary" variant="subtitle1">
+                                        More information about this country
                                     </Typography>
-                                        <Typography p={1} variant="subtitle2" color="textPrimary">
-                                            Capital: {country.capital}
-                                        </Typography>
-                                        <Typography p={1} variant="subtitle2" color="textPrimary">
-                                            Region: {country.region}
-                                        </Typography>
-                                        <Typography p={1} variant="subtitle2" color="textPrimary">
-                                            Population: {country.population}
-                                        </Typography>
-                                        <Typography p={1} variant="subtitle2" color="textPrimary">
-                                            NativeName: {country.nativeName}
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-                            </Box>
-                        )
-                    )}
+                                    <Typography p={1} variant="subtitle2" color="textPrimary">
+                                        Capital: {country.capital}
+                                    </Typography>
+                                    <Typography p={1} variant="subtitle2" color="textPrimary">
+                                        Region: {country.region}
+                                    </Typography>
+                                    <Typography p={1} variant="subtitle2" color="textPrimary">
+                                        Population: {country.population}
+                                    </Typography>
+                                    <Typography p={1} variant="subtitle2" color="textPrimary">
+                                        NativeName: {country.nativeName}
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                        </Box>
+                    ))}
                 </Box>
             </div>
         </>
@@ -172,20 +130,13 @@ const ChooseCountry = (props) => {
                 </div>
             }
         </>
-    )
+    );
 
     return (
         <>
-            {!props.authentication ? <AccessForbidden /> : mainDiv
-            }
+            {!props.authentication ? <AccessForbidden /> : mainDiv}
         </>
     );
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onSelectCountryInfo: (information) => dispatch({ type: actionTypes.COUNTRY_INFO, information: information })
-    }
 }
 
 const mapStateToProps = state => {
@@ -195,4 +146,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChooseCountry);
+export default connect(mapStateToProps)(ChooseCountry);

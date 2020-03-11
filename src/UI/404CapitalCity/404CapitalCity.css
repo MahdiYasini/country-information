@@ -1,12 +1,32 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 /*Variables */
+* {
+  box-sizing: border-box;
+}
 .mainBody {
     width: 50%;
     height: 30%;
+    /* background: linear-gradient(#0C0E10, #446182); */
 }
 
-* {
-  box-sizing: border-box;
+.header {
+  text-shadow: 0 0 1rem #fefefe; 
+  font-size: 5rem;
+  margin: 0;
+  color: burlywood;
+}
+
+.explain {
+  font-size: 2rem;
+  color: burlywood;
+}
+
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+  /* font-size:  1rem;
+  margin: 2rem 0 0.5rem 0;
+  text-shadow: 0 0 1rem #fefefe; */
 }
 
 html, body {
@@ -19,60 +39,16 @@ body {
   color: #f5f6fa;
 }
 
-.background {
-  top: 0;
-  left: 0;
-  background: linear-gradient(#0C0E10, #446182);
-}
 
-@media (max-width: 770px) {
-  .background .ground {
-    height: 0vh;
-  }
-}
-@media (max-width: 770px) {
+
+/* @media (max-width: 770px) {
   .container {
     flex-direction: column;
     padding-bottom: 0vh;
   }
-}
-
-.heading {
-    font-size:  3.5rem;
-    margin: 2rem 0 0.5rem 0;
-    text-shadow: 0 0 1rem #fefefe;
-}
-p {
-    font-size:  2rem;
-    color: white;
-}
-
-@media (max-width: 770px) {
-  .heading {
-    font-size: 7em;
-    line-height: 1.15;
-    margin: 0;
-  }
-}
+} */
 
 
-@media (max-width: 770px) {
-  .subheading {
-    font-size: 1.3em;
-    line-height: 1.15;
-    max-width: 100%;
-  }
-}
-
-
-@media (max-width: 770px) {
-  .right-section {
-    width: 100%;
-    height: 60%;
-    position: absolute;
-    bottom: 0;
-  }
-}
 
 
 

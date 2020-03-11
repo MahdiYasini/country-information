@@ -26,7 +26,7 @@ const ChooseCountry = (props) => {
 
     useEffect(() => {
         if (props.countrySelectedInformation && latLng[0] !== props.countrySelectedInformation.latlng[0]) setLatLng(props.countrySelectedInformation.latlng);
-    });
+    }, [props.countrySelectedInformation, latLng]);
 
     return (
         <div className={classes.box} >
@@ -40,7 +40,7 @@ const ChooseCountry = (props) => {
                     borderRadius={5}
                 >
                     <Box style={{ fontSize: "18px", color: "#263238", width: "100%" }} m={1} p={1} component={Paper} bgcolor={"#c4cad4"} align="center">
-                        <iframe className={classes.map} src={`https://maps.google.com/maps?q=${latLng[0]}, ${latLng[1]}&z=4&output=embed`} />
+                        <iframe title = "Flag" className={classes.map} src={`https://maps.google.com/maps?q=${latLng[0]}, ${latLng[1]}&z=4&output=embed`} />
                     </Box>
                 </Box>
             </div>

@@ -18,7 +18,7 @@
     #181617 10px,
     #181617 20px
   );
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 384px;
   margin: 0;

@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Avatar, Paper, Box, makeStyles } from '@material-ui/core';
-import grey from '@material-ui/core/colors/grey';
-import axios from 'axios';
-import LoaderIcon from '../../UI/loader/loader';
-import ErrorPage from '../../UI/404CapitalCity/404CapitalCity';
-import * as actionTypes from '../../store/actions'
+import { Paper, Box, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     box: {
@@ -18,10 +13,7 @@ const useStyles = makeStyles(theme => ({
             width: "33.33%",
         },
     },
-    large: {
-        width: theme.spacing(7),
-        height: theme.spacing(7),
-    },
+
 }));
 
 const ChooseCountry = (props) => {
@@ -32,8 +24,7 @@ const ChooseCountry = (props) => {
         if (props.countrySelectedInformation) {
             setCode(`+${props.countrySelectedInformation.callingCodes}`);
         }
-    });
-
+    }, [props.countrySelectedInformation]);
 
     return (
         <div className={classes.box} >
@@ -55,7 +46,6 @@ const ChooseCountry = (props) => {
         </div>
     );
 }
-
 
 const mapStateToProps = state => {
     return {

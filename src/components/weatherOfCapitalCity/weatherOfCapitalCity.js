@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Avatar, Paper, Box, makeStyles } from '@material-ui/core';
-import grey from '@material-ui/core/colors/grey';
 import axios from 'axios';
 import LoaderIcon from '../../UI/loader/loader';
 import ErrorPage from '../../UI/404CapitalCity/404CapitalCity';
-import * as actionTypes from '../../store/actions'
 
 const useStyles = makeStyles(theme => ({
     box: {
@@ -53,15 +51,26 @@ const ChooseCountry = (props) => {
                 })
         }
 
-    });
+    }, [props.countrySelectedInformation, capital]);
 
 
     const weatherInformation = (
         <>
-        <Box style={{ fontSize: "18px", color: "#263238", width: "100%" }} p={1} m={1} component={Paper} bgcolor={"#c4cad4"} align="center">
-          <Avatar alt="Remy Sharp" src= {`https://openweathermap.org/img/wn/${icon}@2x.png`} className={classes.large} />
-        </Box>
-        { Object.keys(weatherData).map(information => <Box key={information} style={{ fontSize: "18px", color: "#263238", width: "100%" }} p={1} m={1} component={Paper} bgcolor={"#b1d6ed"} align="center">{information.toUpperCase()}: {weatherData[information]}</Box>)}
+            <Box
+                style={{ fontSize: "18px", color: "#263238", width: "100%" }}
+                p={1}
+                m={1}
+                component={Paper}
+                bgcolor={"#c4cad4"}
+                align="center"
+            >
+                <Avatar
+                    alt="weather icon"
+                    src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
+                    className={classes.large}
+                />
+            </Box>
+            {Object.keys(weatherData).map(information => <Box key={information} style={{ fontSize: "18px", color: "#263238", width: "100%" }} p={1} m={1} component={Paper} bgcolor={"#b1d6ed"} align="center">{information.toUpperCase()}: {weatherData[information]}</Box>)}
         </>
     )
 
@@ -73,7 +82,7 @@ const ChooseCountry = (props) => {
                     flexWrap="wrap"
                     p={1}
                     m={1}
-                    bgcolor= {"#416d8f"}
+                    bgcolor={"#416d8f"}
                     borderRadius={5}
                     style={{ maxWidth: 600, margin: "0 auto" }}
                 >
@@ -83,8 +92,6 @@ const ChooseCountry = (props) => {
             </div>
         </>
     );
-
-
 
     return (
         <div className={classes.box} >

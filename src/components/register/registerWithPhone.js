@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {  InputLabel, Button, FormHelperText, Input, FormControl, TextField, Paper, Box, makeStyles } from '@material-ui/core';
 import grey from '@material-ui/core/colors/grey';
 import axios from '../../axios';
-import LoaderIcon from '../../UI/loader';
+import LoaderIcon from '../../UI/loader/loader';
 import * as actionTypes from '../../store/actions'
 import { Alert } from '@material-ui/lab';
 

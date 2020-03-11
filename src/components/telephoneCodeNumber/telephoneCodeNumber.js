@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Avatar, Paper, Box, makeStyles } from '@material-ui/core';
 import grey from '@material-ui/core/colors/grey';
 import axios from 'axios';
-import LoaderIcon from '../../UI/loader';
+import LoaderIcon from '../../UI/loader/loader';
 import ErrorPage from '../../UI/404CapitalCity/404CapitalCity';
 import * as actionTypes from '../../store/actions'
 
